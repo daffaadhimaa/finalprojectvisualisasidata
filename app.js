@@ -1,35 +1,37 @@
-document.addEventListener("DOMContentLoaded", () => {
-    const data = [
-        { c: "England", mv: 1.52, ga: 82, round: 5, p: "Bellingham, Foden, Saka" },
-        { c: "France", mv: 1.34, ga: 78, round: 5, p: "Mbappé, Tchouaméni, Saliba" },
-        { c: "Brazil", mv: 1.22, ga: 65, round: 4, p: "Vinícius Jr., Rodrygo, Guimarães" },
-        { c: "Spain", mv: 1.04, ga: 60, round: 4, p: "Yamal, Rodri, Pedri" },
-        { c: "Portugal", mv: 0.98, ga: 58, round: 3, p: "Fernandes, Leão, Dias" },
-        { c: "Germany", mv: 0.82, ga: 55, round: 3, p: "Wirtz, Musiala, Kimmich" },
-        { c: "Argentina", mv: 0.74, ga: 52, round: 3, p: "Martínez, Fernández, Romero" },
-        { c: "Netherlands", mv: 0.68, ga: 45, round: 2, p: "Simons, de Jong, van de Ven" },
-        { c: "Italy", mv: 0.61, ga: 42, round: 2, p: "Barella, Bastoni, Dimarco" },
-        { c: "Belgium", mv: 0.48, ga: 38, round: 1, p: "De Bruyne, Doku, Onana" }
-    ];
+:root {
+    --primary: #2d3436;
+    --accent: #0984e3;
+    --bg: #f8f9fa;
+}
 
-    new Chart(document.getElementById('squadValueChart'), {
-        type: 'bar',
-        data: { labels: data.map(i => i.c), datasets: [{ label: 'MV (€B)', data: data.map(i => i.mv), backgroundColor: '#1d3557' }] }
-    });
+body {
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    margin: 0; padding: 40px 20px;
+    min-height: 100vh;
+}
 
-    new Chart(document.getElementById('firepowerScatterChart'), {
-        type: 'scatter',
-        data: { datasets: [{ label: 'Productivity', data: data.map(i => ({x: i.ga, y: i.mv})), backgroundColor: '#e63946' }] }
-    });
+header { text-align: center; margin-bottom: 40px; color: #2d3436; }
 
-    new Chart(document.getElementById('progressionChart'), {
-        type: 'bar',
-        data: { labels: data.map(i => i.c), datasets: [{ label: 'Babak', data: data.map(i => i.round), backgroundColor: '#457b9d' }] },
-        options: { indexAxis: 'y' }
-    });
+.dashboard-container { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); 
+    gap: 25px; 
+    max-width: 1200px; 
+    margin: auto;
+}
 
-    const tbody = document.getElementById('playersBody');
-    data.forEach(item => {
-        tbody.innerHTML += `<tr><td>${item.c}</td><td>${item.p}</td></tr>`;
-    });
-});
+.chart-card { 
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    padding: 25px; 
+    border-radius: 20px; 
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    border: 1px solid rgba(255,255,255,0.3);
+}
+
+table { width: 100%; border-collapse: separate; border-spacing: 0 10px; }
+th { color: #636e72; font-size: 0.8em; text-transform: uppercase; }
+td { padding: 15px; background: #fff; }
+tr td:first-child { border-radius: 10px 0 0 10px; font-weight: bold; }
+tr td:last-child { border-radius: 0 10px 10px 0; }

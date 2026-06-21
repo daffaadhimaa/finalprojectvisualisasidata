@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>World Cup 2026 Analysis</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header>
+        <h1>🏆 World Cup 2026 Country Analysis</h1>
+    </header>
+
+    <main class="dashboard-container">
+        <div class="chart-card"><h3>Kedalaman Skuad (Market Value € Miliar)</h3><canvas id="squadValueChart"></canvas></div>
+        <div class="chart-card"><h3>Firepower Matrix (G+A Klub vs Nilai)</h3><canvas id="firepowerScatterChart"></canvas></div>
+        <div class="chart-card"><h3>Prediksi Babak Terjauh</h3><canvas id="progressionChart"></canvas></div>
+        <div class="chart-card">
+            <h3>Pemain Kunci per Negara</h3>
+            <table id="playersTable">
+                <thead><tr><th>Negara</th><th>Pemain Kunci</th></tr></thead>
+                <tbody id="playersBody"></tbody>
+            </table>
+        </div>
+    </main>
+    <script src="app.js"></script>
+</body>
+</html>
